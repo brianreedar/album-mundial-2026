@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Album Mundial FIFA 2026</title>
+  <style>
+    :root {
+      --ink: #07112f;
+      --muted: #4d5d85;
+      --paper: #f8fbff;
+      --line: #d7def2;
+      --green: #78df35;
+      --red: #e5192b;
+      --yellow: #ffe516;
+      --blue: #0139d8;
+      --teal: #48dfd0;
+      --orange: #ff6a13;
+      --violet: #5334d9;
+      --wine: #8a0f16;
+      --white: #ffffff;
+      --shadow: 0 18px 36px rgba(7, 17, 47, .18);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0 0, var(--orange) 0 11%, transparent 12%),
+        radial-gradient(circle at 100% 0, var(--teal) 0 13%, transparent 14%),
+        radial-gradient(circle at 5% 30%, var(--yellow) 0 12%, transparent 13%),
+        radial-gradient(circle at 93% 28%, var(--wine) 0 10%, transparent 11%),
+        radial-gradient(circle at 8% 68%, #bdf3a0 0 11%, transparent 12%),
+        radial-gradient(circle at 92% 72%, var(--violet) 0 10%, transparent 11%),
+        linear-gradient(90deg, rgba(1,57,216,.08), transparent 35%, rgba(255,106,19,.08)),
+        var(--paper);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 128px, rgba(255,255,255,.36) 128px 132px),
+        repeating-linear-gradient(0deg, transparent 0 128px, rgba(255,255,255,.22) 128px 132px);
+      opacity: .65;
+      pointer-events: none;
+    }
+
+    button, input, select { font: inherit; }
+
+    .app {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+    }
+
+    header {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: stretch;
+      padding: 28px 0 24px;
+    }
+
+    header > div {
+      min-height: 360px;
+      display: grid;
+      align-content: center;
+      padding: 30px;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 94% 10%, var(--orange) 0 20%, transparent 21%),
+        radial-gradient(circle at 96% 72%, var(--yellow) 0 22%, transparent 23%),
+        radial-gradient(circle at 12% 86%, var(--red) 0 20%, transparent 21%),
+        radial-gradient(circle at 5% 18%, var(--teal) 0 18%, transparent 19%),
+        var(--blue);
+      color: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    header > div::after {
+      content: "26";
+      position: absolute;
+      right: 18px;
+      bottom: -42px;
+      color: rgba(255,255,255,.9);
+      font-size: clamp(7rem, 16vw, 13rem);
+      font-weight: 950;
+      line-height: .78;
+      z-index: 0;
+    }
+
+    header > div > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 4.8rem);
+      line-height: .95;
+      max-width: 820px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .subtitle {
+      margin-top: 14px;
+      color: rgba(255,255,255,.92);
+      max-width: 720px;
+      font-size: 1.02rem;
+      line-height: 1.55;
+    }
+
+    .source {
+      color: rgba(255,255,255,.78);
+      font-size: .88rem;
+      max-width: 620px;
+      margin-top: 14px;
+    }
+
+    .source a { color: #fff; font-weight: 800; }
+
+    .hero-media {
+      min-height: 360px;
+      border-radius: 8px;
+      border: 0;
+      background:
+        radial-gradient(circle at 12% 8%, var(--yellow) 0 17%, transparent 18%),
+        radial-gradient(circle at 96% 18%, var(--orange) 0 21%, transparent 22%),
+        radial-gradient(circle at 20% 82%, #cdb6ff 0 15%, transparent 16%),
+        radial-gradient(circle at 86% 86%, var(--green) 0 22%, transparent 23%),
+        #fff;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 0;
+      padding: 18px;
+    }
+
+    .hero-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 324px;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 22px rgba(7,17,47,.25));
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 14px;
+      margin: 12px 0 24px;
+    }
+
+    .panel, .team-card, .editor {
+      background: rgba(255,255,255,.94);
+      border: 2px solid rgba(7,17,47,.08);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .big-stat {
+      padding: 22px;
+      min-height: 190px;
+      display: grid;
+      align-content: space-between;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 100% 0, var(--yellow) 0 30%, transparent 31%),
+        linear-gradient(135deg, #fff 0 56%, #edf5ff 56%);
+    }
+
+    .big-stat::after {
+      content: "";
+      position: absolute;
+      right: -62px;
+      top: -70px;
+      width: 210px;
+      height: 210px;
+      border: 28px solid rgba(255,106,19,.55);
+      transform: rotate(18deg);
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .count {
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      line-height: .88;
+      font-weight: 900;
+      position: relative;
+      z-index: 1;
+    }
+
+    .count span {
+      color: var(--muted);
+      font-size: clamp(1.4rem, 3vw, 2.4rem);
+      font-weight: 700;
+    }
+
+    .progress-track {
+      height: 14px;
+      border-radius: 999px;
+      background: #e8ece9;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--green), var(--teal), var(--yellow));
+      transition: width .25s ease;
+    }
+
+    .mini-stat {
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+      align-content: center;
+    }
+
+    .mini-stat strong {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 8px 0 18px;
+      flex-wrap: wrap;
+    }
+
+    .tabs, .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab, .ghost, .primary {
+      border: 2px solid rgba(7,17,47,.1);
+      background: var(--white);
+      color: var(--ink);
+      border-radius: 8px;
+      min-height: 42px;
+      padding: 0 14px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .tab.active, .primary {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+
+    .ghost:hover, .tab:hover, .icon-btn:hover {
+      border-color: var(--orange);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .panel-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .panel-title h2 {
+      font-size: 1.25rem;
+    }
+
+    .search {
+      min-width: min(100%, 280px);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 42px;
+      padding: 0 12px;
+      background: #fff;
+    }
+
+    .ranking {
+      display: grid;
+      gap: 10px;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: 38px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px;
+      border: 2px solid rgba(7,17,47,.08);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .rank {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--yellow);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .team-name {
+      font-weight: 900;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .flag {
+      width: 34px;
+      height: 24px;
+      display: inline-block;
+      flex: 0 0 auto;
+      object-fit: cover;
+      border: 1px solid rgba(23,32,42,.18);
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(23,32,42,.08);
+      background: #fff;
+    }
+
+    .badge {
+      font-size: .72rem;
+      font-weight: 900;
+      color: #fff;
+      background: var(--red);
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    .row-meta {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-top: 3px;
+    }
+
+    .tiny-track {
+      height: 8px;
+      background: #edf0ee;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .tiny-fill {
+      height: 100%;
+      background: var(--green);
+      width: 0%;
+    }
+
+    .rank-count {
+      font-size: 1rem;
+      font-weight: 900;
+      text-align: right;
+      min-width: 70px;
+    }
+
+    .teams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .groups {
+      display: grid;
+      gap: 18px;
+    }
+
+    .group-section {
+      display: grid;
+      gap: 10px;
+    }
+
+    .group-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+    }
+
+    .group-pill {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 950;
+    }
+
+    .team-card {
+      padding: 14px;
+      box-shadow: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .card-head h3 {
+      font-size: 1.08rem;
+    }
+
+    .section-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .album-section-row {
+      display: grid;
+      grid-template-columns: 1fr minmax(180px, 260px);
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .stepper {
+      display: grid;
+      grid-template-columns: 42px 1fr 42px;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .number-input {
+      width: 100%;
+      min-height: 42px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-weight: 900;
+    }
+
+    .editor {
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .field select, .field input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 0 12px;
+    }
+
+    .save-row {
+      display: grid;
+      gap: 8px;
+    }
+
+    .status {
+      min-height: 20px;
+      color: var(--green);
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    .detail {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      background: #f7f8f5;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .detail strong {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 920px) {
+      header, .stats, .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .app { width: min(100% - 22px, 1180px); padding-top: 16px; }
+      .rank-row { grid-template-columns: 32px 1fr; }
+      .rank-count { grid-column: 2; text-align: left; }
+      .album-section-row { grid-template-columns: 1fr; }
+      .panel-title { align-items: stretch; flex-direction: column; }
+      .search { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <h1>Album Mundial FIFA 2026</h1>
+        <p class="subtitle">Registrá tus figuritas por selección, mirá el avance total y compará qué equipos tenés más completos.</p>
+        <p class="source">Equipos cargados segun la lista de clasificados de <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/world-cup-2026-who-has-qualified" target="_blank" rel="noreferrer">FIFA</a> y los grupos publicados para 2026 por <a href="https://www.fourfourtwo.com/features/fifa-world-cup-2026-dates-fixtures-stadiums-tickets-and-everything-you-need-to-know" target="_blank" rel="noreferrer">FourFourTwo</a>.</p>
+      </div>
+      <figure class="hero-media" aria-label="Album de figuritas mundialista">
+        <img src="assets/album-hero.png" alt="Album de figuritas abierto con espacios vacios y ambiente de estadio">
+      </figure>
+    </header>
+
+    <section class="stats" aria-label="Resumen del album">
+      <article class="panel big-stat">
+        <div>
+          <p class="label">Figuritas conseguidas</p>
+          <p class="count"><strong id="ownedTotal">0</strong><span> / <span id="albumTotal">0</span></span></p>
+        </div>
+        <div>
+          <div class="progress-track" aria-hidden="true"><div id="overallBar" class="progress-fill"></div></div>
+        </div>
+      </article>
+      <article class="panel mini-stat">
+        <p class="label">Album completo</p>
+        <strong id="overallPercent">0%</strong>
+        <p class="row-meta">Progreso general de tu colección.</p>
+      </article>
+      <article class="panel mini-stat">
+        <p class="label">Mejor selección</p>
+        <strong id="bestTeam">-</strong>
+        <p id="bestTeamMeta" class="row-meta">Todavía sin datos.</p>
+      </article>
+    </section>
+
+    <div class="controls">
+      <nav class="tabs" aria-label="Vistas">
+        <button class="tab active" data-view="ranking" type="button">Ranking</button>
+        <button class="tab" data-view="equipos" type="button">Equipos</button>
+        <button class="tab" data-view="secciones" type="button">Secciones</button>
+      </nav>
+      <div class="actions">
+        <button class="ghost" id="resetBtn" type="button">Reiniciar</button>
+        <button class="primary" id="demoBtn" type="button">Cargar ejemplo</button>
+      </div>
+    </div>
+
+    <section class="layout">
+      <div class="panel" id="rankingView">
+        <div class="panel-title">
+          <h2>Ranking por figuritas obtenidas</h2>
+          <input id="rankSearch" class="search" type="search" placeholder="Buscar seleccion">
+        </div>
+        <div id="rankingList" class="ranking"></div>
+      </div>
+
+      <div class="panel hidden" id="teamsView">
+        <div class="panel-title">
+          <h2>Equipos por grupo</h2>
+          <input id="teamSearch" class="search" type="search" placeholder="Buscar seleccion">
+        </div>
+        <div id="teamsGrid" class="groups"></div>
+      </div>
+
+      <div class="panel hidden" id="sectionsView">
+        <div class="panel-title">
+          <h2>Secciones adicionales</h2>
+        </div>
+        <div id="sectionsList" class="section-list"></div>
+      </div>
+
+      <aside class="editor" aria-label="Editor de figuritas">
+        <h2>Actualizar equipo</h2>
+        <div class="field">
+          <label for="teamSelect">Selección</label>
+          <select id="teamSelect"></select>
+        </div>
+        <div class="field">
+          <label for="ownedInput">Figuritas que tengo</label>
+          <input id="ownedInput" type="number" min="0" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="totalInput">Total de figuritas del equipo</label>
+          <input id="totalInput" type="number" min="1" inputmode="numeric" readonly>
+        </div>
+        <div class="save-row">
+          <button class="primary" id="saveTeamBtn" type="button">Guardar cambios</button>
+          <p class="status" id="saveStatus" aria-live="polite"></p>
+        </div>
+        <div class="detail">
+          <p class="label">Detalle seleccionado</p>
+          <strong id="selectedPercent">0%</strong>
+          <p id="selectedMeta" class="row-meta"></p>
+          <div class="progress-track" aria-hidden="true"><div id="selectedBar" class="progress-fill"></div></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const DEFAULT_TOTAL_PER_TEAM = 20;
+    const STORAGE_KEY = "album-mundial-2026";
+    const SECTIONS_KEY = "__sections";
+
+    const teams = [
+      { name: "Mexico", group: "A", confederation: "Concacaf" },
+      { name: "South Africa", group: "A", confederation: "CAF" },
+      { name: "South Korea", group: "A", confederation: "AFC" },
+      { name: "Czechia", group: "A", confederation: "UEFA" },
+      { name: "Canada", group: "B", confederation: "Concacaf" },
+      { name: "Switzerland", group: "B", confederation: "UEFA" },
+      { name: "Qatar", group: "B", confederation: "AFC" },
+      { name: "Bosnia-Herzegovina", group: "B", confederation: "UEFA" },
+      { name: "Brazil", group: "C", confederation: "CONMEBOL" },
+      { name: "Morocco", group: "C", confederation: "CAF" },
+      { name: "Haiti", group: "C", confederation: "Concacaf" },
+      { name: "Scotland", group: "C", confederation: "UEFA" },
+      { name: "USA", group: "D", confederation: "Concacaf" },
+      { name: "Paraguay", group: "D", confederation: "CONMEBOL" },
+      { name: "Australia", group: "D", confederation: "AFC" },
+      { name: "Turkey", group: "D", confederation: "UEFA" },
+      { name: "Germany", group: "E", confederation: "UEFA" },
+      { name: "Curacao", group: "E", confederation: "Concacaf" },
+      { name: "Ivory Coast", group: "E", confederation: "CAF" },
+      { name: "Ecuador", group: "E", confederation: "CONMEBOL" },
+      { name: "Netherlands", group: "F", confederation: "UEFA" },
+      { name: "Japan", group: "F", confederation: "AFC" },
+      { name: "Tunisia", group: "F", confederation: "CAF" },
+      { name: "Sweden", group: "F", confederation: "UEFA" },
+      { name: "Belgium", group: "G", confederation: "UEFA" },
+      { name: "Egypt", group: "G", confederation: "CAF" },
+      { name: "Iran", group: "G", confederation: "AFC" },
+      { name: "New Zealand", group: "G", confederation: "OFC" },
+      { name: "Spain", group: "H", confederation: "UEFA" },
+      { name: "Cape Verde", group: "H", confederation: "CAF" },
+      { name: "Saudi Arabia", group: "H", confederation: "AFC" },
+      { name: "Uruguay", group: "H", confederation: "CONMEBOL" },
+      { name: "France", group: "I", confederation: "UEFA" },
+      { name: "Senegal", group: "I", confederation: "CAF" },
+      { name: "Norway", group: "I", confederation: "UEFA" },
+      { name: "Iraq", group: "I", confederation: "AFC" },
+      { name: "Argentina", group: "J", confederation: "CONMEBOL" },
+      { name: "Algeria", group: "J", confederation: "CAF" },
+      { name: "Austria", group: "J", confederation: "UEFA" },
+      { name: "Jordan", group: "J", confederation: "AFC" },
+      { name: "Portugal", group: "K", confederation: "UEFA" },
+      { name: "Uzbekistan", group: "K", confederation: "AFC" },
+      { name: "Colombia", group: "K", confederation: "CONMEBOL" },
+      { name: "DR Congo", group: "K", confederation: "CAF" },
+      { name: "England", group: "L", confederation: "UEFA" },
+      { name: "Croatia", group: "L", confederation: "UEFA" },
+      { name: "Ghana", group: "L", confederation: "CAF" },
+      { name: "Panama", group: "L", confederation: "Concacaf" }
+    ];
+
+    const albumSections = [
+      { name: "FIFA WORLD CUP", total: 5 },
+      { name: "PAISES ANFITRIONES", total: 4 },
+      { name: "MUSEUM", total: 11 },
+      { name: "COCA COLA", total: 14 }
+    ];
+
+    const teamFlags = {
+      "Mexico": "mx",
+      "South Africa": "za",
+      "South Korea": "kr",
+      "Czechia": "cz",
+      "Canada": "ca",
+      "Switzerland": "ch",
+      "Qatar": "qa",
+      "Bosnia-Herzegovina": "ba",
+      "Brazil": "br",
+      "Morocco": "ma",
+      "Haiti": "ht",
+      "Scotland": "gb-sct",
+      "USA": "us",
+      "Paraguay": "py",
+      "Australia": "au",
+      "Turkey": "tr",
+      "Germany": "de",
+      "Curacao": "cw",
+      "Ivory Coast": "ci",
+      "Ecuador": "ec",
+      "Netherlands": "nl",
+      "Japan": "jp",
+      "Tunisia": "tn",
+      "Sweden": "se",
+      "Belgium": "be",
+      "Egypt": "eg",
+      "Iran": "ir",
+      "New Zealand": "nz",
+      "Spain": "es",
+      "Cape Verde": "cv",
+      "Saudi Arabia": "sa",
+      "Uruguay": "uy",
+      "France": "fr",
+      "Senegal": "sn",
+      "Norway": "no",
+      "Iraq": "iq",
+      "Argentina": "ar",
+      "Algeria": "dz",
+      "Austria": "at",
+      "Jordan": "jo",
+      "Portugal": "pt",
+      "Uzbekistan": "uz",
+      "Colombia": "co",
+      "DR Congo": "cd",
+      "England": "gb-eng",
+      "Croatia": "hr",
+      "Ghana": "gh",
+      "Panama": "pa"
+    };
+
+    const state = loadState();
+
+    const els = {
+      ownedTotal: document.querySelector("#ownedTotal"),
+      albumTotal: document.querySelector("#albumTotal"),
+      overallBar: document.querySelector("#overallBar"),
+      overallPercent: document.querySelector("#overallPercent"),
+      bestTeam: document.querySelector("#bestTeam"),
+      bestTeamMeta: document.querySelector("#bestTeamMeta"),
+      rankingList: document.querySelector("#rankingList"),
+      teamsGrid: document.querySelector("#teamsGrid"),
+      sectionsList: document.querySelector("#sectionsList"),
+      teamSelect: document.querySelector("#teamSelect"),
+      ownedInput: document.querySelector("#ownedInput"),
+      totalInput: document.querySelector("#totalInput"),
+      saveTeamBtn: document.querySelector("#saveTeamBtn"),
+      saveStatus: document.querySelector("#saveStatus"),
+      selectedPercent: document.querySelector("#selectedPercent"),
+      selectedMeta: document.querySelector("#selectedMeta"),
+      selectedBar: document.querySelector("#selectedBar"),
+      rankSearch: document.querySelector("#rankSearch"),
+      teamSearch: document.querySelector("#teamSearch")
+    };
+
+    function loadState() {
+      const blank = Object.fromEntries(teams.map(team => [team.name, { owned: 0, total: DEFAULT_TOTAL_PER_TEAM }]));
+      blank[SECTIONS_KEY] = Object.fromEntries(albumSections.map(section => [section.name, { owned: 0, total: section.total }]));
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (!saved) return blank;
+        const next = Object.fromEntries(teams.map(team => {
+          const item = saved[team.name] || {};
+          return [team.name, {
+            owned: clampNumber(item.owned, 0, DEFAULT_TOTAL_PER_TEAM),
+            total: DEFAULT_TOTAL_PER_TEAM
+          }];
+        }));
+        const savedSections = saved[SECTIONS_KEY] || {};
+        next[SECTIONS_KEY] = Object.fromEntries(albumSections.map(section => {
+          const item = savedSections[section.name] || {};
+          return [section.name, {
+            owned: clampNumber(item.owned, 0, section.total),
+            total: section.total
+          }];
+        }));
+        return next;
+      } catch {
+        return blank;
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch {
+        els.saveStatus.textContent = "No se pudo guardar en este navegador.";
+      }
+    }
+
+    function clampNumber(value, min, max) {
+      const number = Number(value);
+      if (Number.isNaN(number)) return min;
+      return Math.min(max, Math.max(min, Math.round(number)));
+    }
+
+    function percent(owned, total) {
+      return total > 0 ? Math.round((owned / total) * 100) : 0;
+    }
+
+    function getRows() {
+      return teams.map(team => ({ ...team, ...state[team.name], pct: percent(state[team.name].owned, state[team.name].total) }));
+    }
+
+    function getSectionRows() {
+      return albumSections.map(section => ({
+        ...section,
+        ...state[SECTIONS_KEY][section.name],
+        pct: percent(state[SECTIONS_KEY][section.name].owned, section.total)
+      }));
+    }
+
+    function shieldFor(teamName) {
+      const code = teamFlags[teamName];
+      const src = code && code.startsWith("gb-")
+        ? `https://flagcdn.com/${code}.svg`
+        : `https://flagcdn.com/w40/${code}.png`;
+      return `<img class="flag" src="${src}" alt="Bandera de ${teamName}" loading="lazy">`;
+    }
+
+    function renderSelect() {
+      els.teamSelect.innerHTML = teams
+        .map(team => `<option value="${team.name}">${team.name} - Grupo ${team.group}</option>`)
+        .join("");
+    }
+
+    function renderSummary() {
+      const rows = getRows();
+      const sectionRows = getSectionRows();
+      const owned = rows.reduce((sum, team) => sum + team.owned, 0) + sectionRows.reduce((sum, section) => sum + section.owned, 0);
+      const total = rows.reduce((sum, team) => sum + team.total, 0) + sectionRows.reduce((sum, section) => sum + section.total, 0);
+      const best = [...rows].sort((a, b) => b.owned - a.owned || b.pct - a.pct || a.name.localeCompare(b.name))[0];
+
+      els.ownedTotal.textContent = owned;
+      els.albumTotal.textContent = total;
+      els.overallPercent.textContent = `${percent(owned, total)}%`;
+      els.overallBar.style.width = `${percent(owned, total)}%`;
+      els.bestTeam.textContent = best && best.owned > 0 ? best.name : "-";
+      els.bestTeamMeta.textContent = best && best.owned > 0 ? `${best.owned} de ${best.total} figuritas` : "Todavia sin datos.";
+    }
+
+    function renderRanking() {
+      const query = els.rankSearch.value.trim().toLowerCase();
+      const rows = getRows()
+        .filter(team => team.name.toLowerCase().includes(query))
+        .sort((a, b) => b.owned - a.owned || b.pct - a.pct || a.name.localeCompare(b.name));
+
+      els.rankingList.innerHTML = rows.map((team, index) => `
+        <article class="rank-row">
+          <div class="rank">${index + 1}</div>
+          <div>
+            <div class="team-name">${shieldFor(team.name)}${team.name}<span class="badge">Grupo ${team.group}</span></div>
+            <div class="row-meta">${team.confederation} · ${team.pct}% completo</div>
+            <div class="tiny-track" aria-hidden="true"><div class="tiny-fill" style="width:${team.pct}%"></div></div>
+          </div>
+          <div class="rank-count">${team.owned} / ${team.total}</div>
+        </article>
+      `).join("");
+    }
+
+    function renderTeams() {
+      const query = els.teamSearch.value.trim().toLowerCase();
+      const rows = getRows().filter(team => team.name.toLowerCase().includes(query));
+      els.teamsGrid.innerHTML = rows.map(team => `
+        <article class="team-card">
+          <div class="card-head">
+            <div>
+              <h3>${team.name}</h3>
+              <p class="row-meta">Grupo ${team.group} · ${team.confederation}</p>
+            </div>
+            <span class="badge">${team.pct}%</span>
+          </div>
+          <div class="tiny-track" aria-hidden="true"><div class="tiny-fill" style="width:${team.pct}%"></div></div>
+          <div class="stepper" data-team="${team.name}">
+            <button class="icon-btn" data-delta="-1" type="button" title="Restar una figurita">−</button>
+            <input class="number-input card-input" type="number" min="0" max="${team.total}" value="${team.owned}" aria-label="Figuritas de ${team.name}">
+            <button class="icon-btn" data-delta="1" type="button" title="Sumar una figurita">+</button>
+          </div>
+          <p class="row-meta">${team.owned} de ${team.total} figuritas</p>
+        </article>
+      `).join("");
+    }
+
+    function renderTeams() {
+      const query = els.teamSearch.value.trim().toLowerCase();
+      const rows = getRows().filter(team => team.name.toLowerCase().includes(query));
+      const groups = [...new Set(teams.map(team => team.group))].sort();
+      els.teamsGrid.innerHTML = groups.map(group => {
+        const groupRows = rows.filter(team => team.group === group);
+        if (!groupRows.length) return "";
+        return `
+          <section class="group-section">
+            <h3 class="group-title"><span class="group-pill">${group}</span> Grupo ${group}</h3>
+            <div class="teams-grid">
+              ${groupRows.map(team => `
+                <article class="team-card">
+                  <div class="card-head">
+                    <div>
+                      <h3 class="team-name">${shieldFor(team.name)}${team.name}</h3>
+                      <p class="row-meta">Grupo ${team.group} - ${team.confederation}</p>
+                    </div>
+                    <span class="badge">${team.pct}%</span>
+                  </div>
+                  <div class="tiny-track" aria-hidden="true"><div class="tiny-fill" style="width:${team.pct}%"></div></div>
+                  <div class="stepper" data-team="${team.name}">
+                    <button class="icon-btn" data-delta="-1" type="button" title="Restar una figurita">-</button>
+                    <input class="number-input card-input" type="number" min="0" max="${team.total}" value="${team.owned}" aria-label="Figuritas de ${team.name}">
+                    <button class="icon-btn" data-delta="1" type="button" title="Sumar una figurita">+</button>
+                  </div>
+                  <p class="row-meta">${team.owned} de ${team.total} figuritas</p>
+                </article>
+              `).join("")}
+            </div>
+          </section>
+        `;
+      }).join("");
+    }
+
+    function renderEditor() {
+      const name = els.teamSelect.value || teams[0].name;
+      const data = state[name];
+      els.ownedInput.value = data.owned;
+      els.ownedInput.max = data.total;
+      els.totalInput.value = data.total;
+      els.selectedPercent.textContent = `${percent(data.owned, data.total)}%`;
+      els.selectedMeta.textContent = `${name}: ${data.owned} de ${data.total} figuritas`;
+      els.selectedBar.style.width = `${percent(data.owned, data.total)}%`;
+    }
+
+    function renderSelectedDetail() {
+      const name = els.teamSelect.value || teams[0].name;
+      const owned = clampNumber(els.ownedInput.value, 0, Math.max(1, Number(els.totalInput.value) || 1));
+      const total = Math.max(1, Number(els.totalInput.value) || 1);
+      els.selectedPercent.textContent = `${percent(owned, total)}%`;
+      els.selectedMeta.textContent = `${name}: ${owned} de ${total} figuritas`;
+      els.selectedBar.style.width = `${percent(owned, total)}%`;
+    }
+
+    function renderSections() {
+      els.sectionsList.innerHTML = getSectionRows().map(section => `
+        <article class="album-section-row">
+          <div>
+            <div class="team-name">${section.name}<span class="badge">${section.pct}%</span></div>
+            <p class="row-meta">${section.owned} de ${section.total} figuritas</p>
+            <div class="tiny-track" aria-hidden="true"><div class="tiny-fill" style="width:${section.pct}%"></div></div>
+          </div>
+          <div class="stepper" data-section="${section.name}">
+            <button class="icon-btn" data-delta="-1" type="button" title="Restar una figurita">-</button>
+            <input class="number-input section-input" type="number" min="0" max="${section.total}" value="${section.owned}" aria-label="Figuritas de ${section.name}">
+            <button class="icon-btn" data-delta="1" type="button" title="Sumar una figurita">+</button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderAll() {
+      saveState();
+      renderSummary();
+      renderRanking();
+      renderTeams();
+      renderSections();
+      renderEditor();
+    }
+
+    function updateTeam(name, changes, options = {}) {
+      const current = state[name];
+      const total = DEFAULT_TOTAL_PER_TEAM;
+      const owned = clampNumber(changes.owned ?? current.owned, 0, total);
+      state[name] = { owned, total };
+      saveState();
+      renderSummary();
+      renderRanking();
+      renderTeams();
+      if (!options.keepEditorValues) renderEditor();
+      els.saveStatus.textContent = `${name} guardado: ${owned} de ${total}.`;
+    }
+
+    function updateSection(name, ownedValue) {
+      const section = albumSections.find(item => item.name === name);
+      if (!section) return;
+      const owned = clampNumber(ownedValue, 0, section.total);
+      state[SECTIONS_KEY][name] = { owned, total: section.total };
+      saveState();
+      renderSummary();
+      renderSections();
+    }
+
+    function saveSelectedTeam() {
+      const name = els.teamSelect.value || teams[0].name;
+      updateTeam(name, {
+        owned: els.ownedInput.value,
+        total: els.totalInput.value
+      }, { keepEditorValues: true });
+      renderSelectedDetail();
+    }
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(item => item.classList.remove("active"));
+        tab.classList.add("active");
+        document.querySelector("#rankingView").classList.toggle("hidden", tab.dataset.view !== "ranking");
+        document.querySelector("#teamsView").classList.toggle("hidden", tab.dataset.view !== "equipos");
+        document.querySelector("#sectionsView").classList.toggle("hidden", tab.dataset.view !== "secciones");
+      });
+    });
+
+    els.teamSelect.addEventListener("change", () => {
+      els.saveStatus.textContent = "";
+      renderEditor();
+    });
+    els.ownedInput.addEventListener("input", () => {
+      saveSelectedTeam();
+    });
+    els.totalInput.addEventListener("input", () => {
+      saveSelectedTeam();
+    });
+    els.saveTeamBtn.addEventListener("click", saveSelectedTeam);
+    els.rankSearch.addEventListener("input", renderRanking);
+    els.teamSearch.addEventListener("input", renderTeams);
+
+    els.teamsGrid.addEventListener("click", event => {
+      const button = event.target.closest("[data-delta]");
+      if (!button) return;
+      const wrapper = button.closest("[data-team]");
+      const name = wrapper.dataset.team;
+      const delta = Number(button.dataset.delta);
+      updateTeam(name, { owned: state[name].owned + delta });
+      els.teamSelect.value = name;
+      renderEditor();
+    });
+
+    els.teamsGrid.addEventListener("input", event => {
+      if (!event.target.classList.contains("card-input")) return;
+      const name = event.target.closest("[data-team]").dataset.team;
+      updateTeam(name, { owned: event.target.value });
+      els.teamSelect.value = name;
+      renderEditor();
+    });
+
+    els.sectionsList.addEventListener("click", event => {
+      const button = event.target.closest("[data-delta]");
+      if (!button) return;
+      const wrapper = button.closest("[data-section]");
+      const name = wrapper.dataset.section;
+      const delta = Number(button.dataset.delta);
+      updateSection(name, state[SECTIONS_KEY][name].owned + delta);
+    });
+
+    els.sectionsList.addEventListener("input", event => {
+      if (!event.target.classList.contains("section-input")) return;
+      const name = event.target.closest("[data-section]").dataset.section;
+      updateSection(name, event.target.value);
+    });
+
+    document.querySelector("#resetBtn").addEventListener("click", () => {
+      if (!confirm("¿Querés borrar todo el progreso cargado?")) return;
+      teams.forEach(team => state[team.name] = { owned: 0, total: DEFAULT_TOTAL_PER_TEAM });
+      albumSections.forEach(section => state[SECTIONS_KEY][section.name] = { owned: 0, total: section.total });
+      renderAll();
+    });
+
+    document.querySelector("#demoBtn").addEventListener("click", () => {
+      teams.forEach((team, index) => {
+        const owned = Math.max(0, Math.round((Math.sin(index * 1.7) + 1) * 6 + (index % 4)));
+        state[team.name] = { owned: Math.min(owned, DEFAULT_TOTAL_PER_TEAM), total: DEFAULT_TOTAL_PER_TEAM };
+      });
+      albumSections.forEach((section, index) => {
+        state[SECTIONS_KEY][section.name] = { owned: Math.min(section.total, index * 3 + 2), total: section.total };
+      });
+      renderAll();
+    });
+
+    renderSelect();
+    renderAll();
+  </script>
+</body>
+</html>
