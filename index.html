@@ -39,22 +39,13 @@
       margin: 0;
       color: var(--ink);
       background:
-        linear-gradient(rgba(255,255,255,.28), rgba(255,255,255,.58)),
         url("assets/app-wallpaper.jpg") center / cover fixed no-repeat,
         var(--paper);
       min-height: 100vh;
     }
 
     body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(rgba(7,17,47,.06), rgba(7,17,47,.12)),
-        radial-gradient(circle at 20% 10%, rgba(255,255,255,.3), transparent 30%);
-      opacity: .9;
-      pointer-events: none;
+      content: none;
     }
 
     button, input, select { font: inherit; }
@@ -137,9 +128,11 @@
     header > div {
       min-height: auto;
       aspect-ratio: 16 / 9;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       width: 100%;
-      padding: 0;
+      padding: clamp(22px, 5vw, 96px);
       border-radius: 0;
       background: var(--hero-banner) center / cover no-repeat var(--blue);
       color: #fff;
@@ -149,7 +142,14 @@
     }
 
     header > div::before {
-      content: none;
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: min(58%, 820px);
+      background:
+        radial-gradient(circle at -3% 104%, rgba(227,17,13,.94) 0 92px, transparent 94px),
+        linear-gradient(90deg, rgba(37,94,234,.98) 0%, rgba(37,94,234,.96) 72%, rgba(37,94,234,0) 100%);
+      pointer-events: none;
     }
 
     header > div::after {
@@ -157,12 +157,8 @@
     }
 
     .home-hero > * {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
+      position: relative;
+      z-index: 1;
     }
 
     h1, h2, h3, p { margin: 0; }
@@ -172,7 +168,6 @@
       line-height: .9;
       max-width: 680px;
       letter-spacing: 0;
-      text-transform: uppercase;
       color: #fff;
       font-weight: 900;
       text-shadow: 0 12px 30px rgba(0,0,0,.28);
@@ -188,14 +183,20 @@
     }
 
     .source {
-      color: rgba(255,255,255,.78);
-      font-size: .9rem;
-      font-weight: 400;
-      max-width: 620px;
-      margin-top: 14px;
+      display: none;
     }
 
     .source a { color: #fff; font-weight: 800; }
+
+    .subtitle::before {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 5px;
+      border-radius: 999px;
+      margin: 0 0 18px;
+      background: var(--yellow);
+    }
 
     .notice {
       display: inline-flex;
@@ -203,7 +204,7 @@
       margin-bottom: 18px;
       padding: 8px 14px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #d5aa25, var(--yellow));
+      background: linear-gradient(135deg, var(--yellow), #a8e600);
       color: #fff;
       font-size: .78rem;
       font-weight: 900;
@@ -1513,14 +1514,13 @@
     @media (max-width: 700px) {
       body {
         background:
-          linear-gradient(rgba(255,255,255,.24), rgba(255,255,255,.62)),
           url("assets/app-wallpaper.jpg") center top / auto 100vh repeat-y,
           var(--paper);
       }
 
       body::before {
+        content: none;
         mask-image: none;
-        opacity: .18;
       }
 
       .app {
@@ -1665,9 +1665,43 @@
       header > div {
         min-height: auto;
         aspect-ratio: 16 / 9;
-        padding: 0;
+        padding: 18px;
         border-radius: 0;
-        background: var(--hero-banner) center / cover no-repeat var(--blue);
+        background-position: 62% center;
+      }
+
+      header > div::before {
+        width: 73%;
+        background:
+          radial-gradient(circle at -4% 104%, rgba(227,17,13,.94) 0 54px, transparent 56px),
+          linear-gradient(90deg, rgba(37,94,234,.98) 0%, rgba(37,94,234,.96) 72%, rgba(37,94,234,0) 100%);
+      }
+
+      .notice {
+        margin-bottom: 8px;
+        padding: 5px 9px;
+        font-size: .48rem;
+        letter-spacing: .06em;
+      }
+
+      h1 {
+        max-width: 250px;
+        font-size: clamp(1.7rem, 8vw, 2.45rem);
+        line-height: .95;
+        text-shadow: 0 8px 22px rgba(0,0,0,.34);
+      }
+
+      .subtitle {
+        max-width: 235px;
+        margin-top: 10px;
+        font-size: .78rem;
+        line-height: 1.25;
+      }
+
+      .subtitle::before {
+        width: 28px;
+        height: 3px;
+        margin-bottom: 10px;
       }
 
       .stats {
@@ -2028,7 +2062,7 @@
           <img class="tab-image-icon" src="assets/album_transparente.png" alt="">
           Álbum
         </button>
-        <button class="tab home-logo-tab" data-view="home" type="button" aria-label="Ir a la Home">
+        <button class="tab home-logo-tab" data-view="home" data-scroll-home type="button" aria-label="Ir a la Home">
           <img src="assets/logo2026.png" alt="">
         </button>
         <button class="tab has-image-icon" data-view="fixture" type="button">
@@ -3441,17 +3475,38 @@
     }
 
     const appRoot = document.querySelector(".app");
-    const heroLabels = {
-      home: "Bienvenido al tracker de figuritas del Mundial 2026",
-      album: "Completa tu album del Mundial 2026",
-      fixture: "Segui cada partido del Mundial 2026",
-      prode: "Simulador del Mundial"
+    const heroContent = {
+      home: {
+        notice: "Tracker no oficial",
+        title: "Bienvenido al tracker de figuritas del Mundial 2026",
+        subtitle: "Registra tu album, mira tu progreso y simula el torneo"
+      },
+      album: {
+        notice: "Tracker no oficial",
+        title: "Completa tu album del Mundial 2026",
+        subtitle: "Registra tus figuritas, segui el avance de cada seleccion y descubri que secciones te faltan completar."
+      },
+      fixture: {
+        notice: "Fixture",
+        title: "Segui cada partido del Mundial 2026",
+        subtitle: "Calendario, horarios y resultados en un solo lugar."
+      },
+      prode: {
+        notice: "Simulador",
+        title: "Simulador del Mundial",
+        subtitle: "Simula todos los partidos, arma tu fase final y descubri al campeon del mundo."
+      }
     };
 
     function setActiveView(view) {
       appRoot.classList.remove("view-home", "view-album", "view-fixture", "view-prode");
       appRoot.classList.add(`view-${view}`);
-      document.querySelector(".home-hero").setAttribute("aria-label", heroLabels[view] || heroLabels.home);
+      const content = heroContent[view] || heroContent.home;
+      const hero = document.querySelector(".home-hero");
+      hero.setAttribute("aria-label", content.title);
+      hero.querySelector(".notice").textContent = content.notice;
+      hero.querySelector("h1").textContent = content.title;
+      hero.querySelector(".subtitle").textContent = content.subtitle;
     }
 
     document.querySelectorAll(".tab").forEach(tab => {
@@ -3465,6 +3520,9 @@
         document.querySelector("#prodeView").classList.toggle("hidden", tab.dataset.view !== "prode");
         if (tab.dataset.view === "fixture") renderFixture();
         if (tab.dataset.view === "prode") renderProde();
+        if (tab.hasAttribute("data-scroll-home")) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       });
     });
 
@@ -3661,6 +3719,7 @@
 
     renderSelect();
     renderGroupFilters();
+    setActiveView("home");
     renderAll();
   </script>
 </body>
