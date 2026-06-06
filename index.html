@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VWFX04J6C6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-VWFX04J6C6');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Album Mundial 2026 - Tracker no oficial</title>
@@ -101,19 +110,19 @@
       padding: 28px 0 42px;
       display: flex;
       flex-direction: column;
-      --hero-banner: url("assets/hero-banner-app-mundial.png");
+      --hero-banner: url("assets/home-hero-clean.png");
     }
 
     .app.view-album {
-      --hero-banner: url("assets/hero-album.png");
+      --hero-banner: url("assets/album-hero-clean.png");
     }
 
     .app.view-fixture {
-      --hero-banner: url("assets/hero-fixture.png");
+      --hero-banner: url("assets/fixture-hero-clean.png");
     }
 
     .app.view-prode {
-      --hero-banner: url("assets/hero-simulador.png");
+      --hero-banner: url("assets/simulador-hero-clean.png");
     }
 
     header {
@@ -145,14 +154,25 @@
       content: "";
       position: absolute;
       inset: 0 auto 0 0;
-      width: min(58%, 820px);
+      width: min(54%, 760px);
       background:
         radial-gradient(circle at -3% 104%, rgba(227,17,13,.94) 0 92px, transparent 94px),
-        linear-gradient(90deg, rgba(37,94,234,.98) 0%, rgba(37,94,234,.96) 72%, rgba(37,94,234,0) 100%);
+        linear-gradient(90deg, #255eea 0%, #255eea 86%, rgba(37,94,234,.82) 94%, rgba(37,94,234,0) 100%);
       pointer-events: none;
     }
 
     header > div::after {
+      content: none;
+    }
+
+    .app.view-home header > div::before,
+    .app.view-home header > div::after,
+    .app.view-album header > div::before,
+    .app.view-album header > div::after,
+    .app.view-fixture header > div::before,
+    .app.view-fixture header > div::after,
+    .app.view-prode header > div::before,
+    .app.view-prode header > div::after {
       content: none;
     }
 
@@ -1056,6 +1076,59 @@
       text-align: right;
     }
 
+    .fixture-result-layout {
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: end;
+      gap: clamp(10px, 4vw, 30px);
+      width: 100%;
+    }
+
+    .fixture-team-slot {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .fixture-team-heading {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .fixture-team-heading.away {
+      grid-template-columns: minmax(0, 1fr) auto;
+      text-align: right;
+    }
+
+    .fixture-team-name {
+      color: var(--ink);
+      font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+      font-weight: 700;
+      line-height: 1.12;
+      overflow-wrap: normal;
+      word-break: normal;
+      hyphens: auto;
+      text-wrap: balance;
+    }
+
+    .fixture-team-score {
+      width: clamp(72px, 18vw, 132px);
+      min-height: clamp(48px, 8vw, 64px);
+      justify-self: center;
+      font-size: clamp(1.45rem, 4.5vw, 2.4rem);
+      border-radius: 12px;
+    }
+
+    .fixture-score-dash {
+      align-self: center;
+      color: var(--ink);
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 900;
+      padding-bottom: clamp(12px, 3vw, 18px);
+    }
+
     .prode-scoreline {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -1671,10 +1744,10 @@
       }
 
       header > div::before {
-        width: 73%;
+        width: 54%;
         background:
           radial-gradient(circle at -4% 104%, rgba(227,17,13,.94) 0 54px, transparent 56px),
-          linear-gradient(90deg, rgba(37,94,234,.98) 0%, rgba(37,94,234,.96) 72%, rgba(37,94,234,0) 100%);
+          linear-gradient(90deg, #255eea 0%, #255eea 86%, rgba(37,94,234,.82) 94%, rgba(37,94,234,0) 100%);
       }
 
       .notice {
@@ -1860,7 +1933,7 @@
 
       .fixture-scoreline {
         grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-        gap: 8px;
+        gap: 10px;
       }
 
       .fixture-scoreline .match-team {
@@ -1871,7 +1944,40 @@
       }
 
       .fixture-scoreline .match-team span {
-        overflow-wrap: anywhere;
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+
+      .fixture-result-layout {
+        align-items: end;
+        gap: 8px;
+      }
+
+      .fixture-team-slot {
+        gap: 9px;
+      }
+
+      .fixture-team-heading {
+        gap: 8px;
+      }
+
+      .fixture-team-heading .flag {
+        width: 40px;
+        height: 28px;
+      }
+
+      .fixture-team-name {
+        font-size: clamp(1.05rem, 4vw, 1.38rem);
+      }
+
+      .fixture-team-score {
+        width: clamp(58px, 17vw, 86px);
+        min-height: clamp(46px, 13vw, 58px);
+        font-size: clamp(1.35rem, 7vw, 2rem);
+      }
+
+      .fixture-score-dash {
+        padding-bottom: clamp(12px, 4vw, 18px);
       }
 
       .prode-scoreline {
@@ -1964,11 +2070,53 @@
       }
 
       .standings-table {
-        min-width: 520px;
-        font-size: .82rem;
+        min-width: 0;
+        table-layout: fixed;
+        font-size: .76rem;
       }
 
-      .standings-table th, .standings-table td { padding: 9px 6px; }
+      .standings-table th,
+      .standings-table td {
+        padding: 8px 4px;
+        white-space: normal;
+      }
+
+      .standings-table th:first-child,
+      .standings-table td:first-child {
+        width: 56%;
+      }
+
+      .standings-table th:nth-child(2),
+      .standings-table td:nth-child(2) {
+        width: 28px;
+      }
+
+      .standings-table th:nth-child(3),
+      .standings-table td:nth-child(3) {
+        width: 34px;
+      }
+
+      .standings-table th:nth-child(4),
+      .standings-table td:nth-child(4) {
+        width: 62px;
+      }
+
+      .standings-table .team-name {
+        gap: 5px;
+        font-size: .78rem;
+        line-height: 1.08;
+      }
+
+      .standings-table .flag {
+        width: 28px;
+        height: 20px;
+      }
+
+      .standings-table .form-cell {
+        min-width: 0;
+        letter-spacing: .04em;
+        white-space: nowrap;
+      }
     }
 
     @media (max-width: 380px) {
@@ -2576,14 +2724,22 @@
         return `
           <article class="fixture-match fixture-group-match">
             <div><span class="badge">${match.label}</span></div>
-            <div class="fixture-scoreline">
-              <span class="match-team">${shieldFor(match.home)}<span>${match.home}</span></span>
-              <div class="prediction-row" data-result-match="${match.id}">
-                <input class="score-input result-score" data-side="home" type="number" min="0" value="${hasScore ? result.home : ""}" aria-label="Goles de ${match.home}">
-                <strong>-</strong>
-                <input class="score-input result-score" data-side="away" type="number" min="0" value="${hasScore ? result.away : ""}" aria-label="Goles de ${match.away}">
+            <div class="fixture-scoreline fixture-result-layout" data-result-match="${match.id}">
+              <div class="fixture-team-slot">
+                <div class="fixture-team-heading">
+                  ${shieldFor(match.home)}
+                  <span class="fixture-team-name">${match.home}</span>
+                </div>
+                <input class="score-input fixture-team-score result-score" data-side="home" type="number" min="0" value="${hasScore ? result.home : ""}" aria-label="Goles de ${match.home}">
               </div>
-              <span class="match-team">${shieldFor(match.away)}<span>${match.away}</span></span>
+              <strong class="fixture-score-dash">-</strong>
+              <div class="fixture-team-slot">
+                <div class="fixture-team-heading away">
+                  <span class="fixture-team-name">${match.away}</span>
+                  ${shieldFor(match.away)}
+                </div>
+                <input class="score-input fixture-team-score result-score" data-side="away" type="number" min="0" value="${hasScore ? result.away : ""}" aria-label="Goles de ${match.away}">
+              </div>
             </div>
           </article>
         `;
@@ -2609,9 +2765,6 @@
               <tr>
                 <th>Equipo</th>
                 <th>PJ</th>
-                <th>G</th>
-                <th>E</th>
-                <th>P</th>
                 <th>Pts</th>
                 <th>Resultados</th>
               </tr>
@@ -2621,9 +2774,6 @@
                 <tr>
                   <td><span class="team-name">${index + 1} ${shieldFor(row.team)}${row.team}</span></td>
                   <td>${row.pj}</td>
-                  <td>${row.g}</td>
-                  <td>${row.e}</td>
-                  <td>${row.p}</td>
                   <td><strong>${row.pts}</strong></td>
                   <td class="form-cell">${row.form.length ? row.form.join(" - ") : "- - -"}</td>
                 </tr>
@@ -2885,14 +3035,22 @@
               return `
                 <article class="fixture-match fixture-group-match">
                   <span class="badge">Partido ${match.id}</span>
-                  <div class="fixture-scoreline">
-                    <span class="match-team">${slotMarkup(pair[0])}</span>
-                    <div class="prediction-row" data-knockout-result="${resultId}">
-                      <input class="score-input knockout-score" data-side="home" type="number" min="0" value="${Number.isFinite(result.home) ? result.home : ""}" aria-label="Goles de ${pair[0].team || pair[0].label}" ${ready ? "" : "disabled"}>
-                      <strong>-</strong>
-                      <input class="score-input knockout-score" data-side="away" type="number" min="0" value="${Number.isFinite(result.away) ? result.away : ""}" aria-label="Goles de ${pair[1].team || pair[1].label}" ${ready ? "" : "disabled"}>
+                  <div class="fixture-scoreline fixture-result-layout" data-knockout-result="${resultId}">
+                    <div class="fixture-team-slot">
+                      <div class="fixture-team-heading">
+                        ${pair[0].team ? shieldFor(pair[0].team) : ""}
+                        <span class="fixture-team-name">${pair[0].team || pair[0].label}</span>
+                      </div>
+                      <input class="score-input fixture-team-score knockout-score" data-side="home" type="number" min="0" value="${Number.isFinite(result.home) ? result.home : ""}" aria-label="Goles de ${pair[0].team || pair[0].label}" ${ready ? "" : "disabled"}>
                     </div>
-                    <span class="match-team">${slotMarkup(pair[1])}</span>
+                    <strong class="fixture-score-dash">-</strong>
+                    <div class="fixture-team-slot">
+                      <div class="fixture-team-heading away">
+                        <span class="fixture-team-name">${pair[1].team || pair[1].label}</span>
+                        ${pair[1].team ? shieldFor(pair[1].team) : ""}
+                      </div>
+                      <input class="score-input fixture-team-score knockout-score" data-side="away" type="number" min="0" value="${Number.isFinite(result.away) ? result.away : ""}" aria-label="Goles de ${pair[1].team || pair[1].label}" ${ready ? "" : "disabled"}>
+                    </div>
                   </div>
                 </article>
                 ${result.home === result.away && Number.isFinite(result.home) ? `<p class="row-meta">El empate no define ganador. Carga un resultado con ganador para avanzar.</p>` : ""}
@@ -3008,9 +3166,6 @@
               <tr>
                 <th>Equipo</th>
                 <th>PJ</th>
-                <th>G</th>
-                <th>E</th>
-                <th>P</th>
                 <th>Pts</th>
                 <th>Resultados</th>
               </tr>
@@ -3020,9 +3175,6 @@
                 <tr>
                   <td><span class="team-name">${index + 1} ${shieldFor(row.team)}${row.team}</span></td>
                   <td>${row.pj}</td>
-                  <td>${row.g}</td>
-                  <td>${row.e}</td>
-                  <td>${row.p}</td>
                   <td><strong>${row.pts}</strong></td>
                   <td class="form-cell">${row.form.length ? row.form.join(" - ") : "- - -"}</td>
                 </tr>
@@ -3520,9 +3672,9 @@
         document.querySelector("#prodeView").classList.toggle("hidden", tab.dataset.view !== "prode");
         if (tab.dataset.view === "fixture") renderFixture();
         if (tab.dataset.view === "prode") renderProde();
-        if (tab.hasAttribute("data-scroll-home")) {
+        requestAnimationFrame(() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+        });
       });
     });
 
